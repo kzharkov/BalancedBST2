@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalancedBST2Tests", "BalancedBST2Tests\BalancedBST2Tests.csproj", "{AA3B4ABF-E480-4E89-A189-BCBDF6A159D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BalancedBST2", "BalancedBST2\BalancedBST2.csproj", "{EF65230C-5D86-4167-8099-62548AF0D024}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA3B4ABF-E480-4E89-A189-BCBDF6A159D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA3B4ABF-E480-4E89-A189-BCBDF6A159D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA3B4ABF-E480-4E89-A189-BCBDF6A159D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA3B4ABF-E480-4E89-A189-BCBDF6A159D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF65230C-5D86-4167-8099-62548AF0D024}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF65230C-5D86-4167-8099-62548AF0D024}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF65230C-5D86-4167-8099-62548AF0D024}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF65230C-5D86-4167-8099-62548AF0D024}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
