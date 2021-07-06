@@ -56,18 +56,22 @@ namespace AlgorithmsDataStructures2
             // ...
             Array.Sort(a);
 
-            GenerateTreeHelper(null, a);
+            GenerateTreeHelper(null, a, 0, a.Length - 1);
         }
 
-        private void GenerateTreeHelper(BSTNode parent, int[] a)
+        private void GenerateTreeHelper(BSTNode parent, int[] a, int start, int end)
         {
-            var middle = a.Length / 2;
+            if (start > end)
+            {
+                return;
+            }
+            
+            var middle = (start + end) / 2;
 
             var node = new BSTNode(a[middle], parent);
 
             if (parent == null)
             {
-                node.Level = 0;
                 Root = node;
             }
             else
@@ -83,36 +87,20 @@ namespace AlgorithmsDataStructures2
                 }
             }
 
-
-            int[] temp;
-            switch (a.Length)
-            {
-                case 2:
-                    temp = new int[middle];
-                    Array.Copy(a, 0, temp, 0, middle);
-                    GenerateTreeHelper(node, temp);
-                    return;
-                case 1:
-                    return;
-            }
-
-            temp = new int[middle];
-            Array.Copy(a, 0, temp, 0, middle);
-            GenerateTreeHelper(node, temp);
-            temp = new int[a.Length - middle - 1];
-            Array.Copy(a, middle+1, temp, 0, a.Length - middle - 1);
-            GenerateTreeHelper(node, temp);
+            GenerateTreeHelper(node, a, start, middle - 1);
+            GenerateTreeHelper(node, a, middle + 1, end);
         }
 
         public bool IsBalanced(BSTNode root_node)
         {
-            var leftHeight = root_node.Level; 
-            var rightHeight = root_node.Level; 
+            var leftHeight = root_node.Level;
+            var rightHeight = root_node.Level;
             if (root_node.LeftChild != null)
             {
                 leftHeight = Height(root_node.LeftChild);
                 if (!IsBalanced(root_node.LeftChild)) return false;
             }
+
             if (root_node.RightChild != null)
             {
                 rightHeight = Height(root_node.RightChild);
@@ -122,7 +110,7 @@ namespace AlgorithmsDataStructures2
             return Math.Abs(leftHeight - rightHeight) <= 1;
         }
 
-        private int Height(BSTNode node)
+        private static int Height(BSTNode node)
         {
             var height = node.Level;
             if (node.LeftChild != null)
