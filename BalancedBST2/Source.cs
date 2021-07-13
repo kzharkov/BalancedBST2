@@ -56,39 +56,29 @@ namespace AlgorithmsDataStructures2
             // ...
             Array.Sort(a);
 
-            GenerateTreeHelper(null, a, 0, a.Length - 1);
+            Root = GenerateTreeHelper(null, a, 0, a.Length - 1);
         }
 
-        private void GenerateTreeHelper(BSTNode parent, int[] a, int start, int end)
+        private BSTNode GenerateTreeHelper(BSTNode parent, int[] a, int start, int end)
         {
             if (start > end)
             {
-                return;
+                return null;
             }
-            
+
             var middle = (start + end) / 2;
 
             var node = new BSTNode(a[middle], parent);
 
-            if (parent == null)
-            {
-                Root = node;
-            }
-            else
+            if (parent != null)
             {
                 node.Level = parent.Level + 1;
-                if (parent.NodeKey > node.NodeKey)
-                {
-                    parent.LeftChild = node;
-                }
-                else
-                {
-                    parent.RightChild = node;
-                }
             }
 
-            GenerateTreeHelper(node, a, start, middle - 1);
-            GenerateTreeHelper(node, a, middle + 1, end);
+            node.LeftChild = GenerateTreeHelper(node, a, start, middle - 1);
+            node.RightChild = GenerateTreeHelper(node, a, middle + 1, end);
+
+            return node;
         }
 
         public bool IsBalanced(BSTNode root_node)
